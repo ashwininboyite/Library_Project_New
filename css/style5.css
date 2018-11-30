@@ -1,0 +1,99 @@
+
+
+/*-- gallery --*/ 
+.galry-grid.galry-text {
+    padding: 1em;
+} 
+.gallery p {
+    font-size: 1.5em;
+    color: #fff; 
+    letter-spacing: 1px;
+} 
+.galry-grid.galry-grid-right {
+    padding-left: 1em;
+}
+.galry-grid.glry-one {
+    padding-bottom: 1em;
+}
+.galry-text {
+    padding: 3em 4.5em;
+    background: #f2994a;
+    margin-bottom: 1em;
+    text-align: center;
+}
+.galry-grid a {
+    display: block;
+	overflow: hidden;
+    position: relative;
+}
+.glry-two.glry-left {
+    float: left;
+    width: 24.5%;
+    margin-right: 1em;
+    overflow: hidden;
+}
+.glry-two.glry-right {
+    float: left;
+    width: 23.1%;
+	overflow: hidden;
+}
+.glly-bottm .glry-two.glry-left {
+    margin: 0 0 0 1em;
+}
+.galry-grid.grid-top-rgt {
+    margin-bottom: 1.1em;
+}
+a.w3ls-bottom-img {
+    margin-top: 1em;
+    display: block;
+}
+.w3agile-text {
+    background: rgba(0, 0, 0, 0.58);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: -100%;
+    left: 0;
+	transition:.5s all;
+}
+.galry-grid a:hover .w3agile-text{
+	bottom: 0%;
+}
+
+img.zoom-img{
+	width:100%;
+	-webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+	-moz-transform: scale(1, 1);
+	-ms-transform: scale(1, 1);
+	-o-transform: scale(1, 1);
+	transition-timing-function: ease-out;
+	-webkit-transition-timing-function: ease-out;
+	-moz-transition-timing-function: ease-out;
+	-ms-transition-timing-function: ease-out;
+	-o-transition-timing-function: ease-out;
+	-webkit-transition-duration: .5s;
+	-moz-transition-duration: .5s;
+	-ms-transition-duration: .5s;
+	-o-transition-duration: .5s;
+}
+.galry-grid a:hover img.zoom-img{
+	-webkit-transform: scale(1.8);
+	transform: scale(1.8);
+	-moz-transform: scale(1.8);
+	-ms-transform: scale(1.8);
+	-o-transform: scale(1.8);  
+	-webkit-transition-timing-function: ease-in-out;
+	-moz-transition-timing-function: ease-in-out; 
+	-ms-transition-timing-function: ease-in-out;
+	-o-transition-timing-function: ease-in-out;
+	transition-timing-function: ease-in-out;
+	-webkit-transition-duration: 750ms; 
+	-moz-transition-duration: 750ms;
+	-ms-transition-duration: 750ms;
+	-o-transition-duration: 750ms;
+	transition-duration: 750ms; 
+	overflow: hidden;
+}
+/*-- //gallery --*/
+
