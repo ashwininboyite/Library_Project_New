@@ -90,12 +90,10 @@
   <div>
       <div class="login-group homepage_admin light-wrap" id="no_book">
         <ul >
-            <h2 style="color: white;">Oops No Books are Presrent !!!!...</h2>
+            <h2 style="color: white;">No Books are Presrent !!!!...</h2>
         </ul>
       </div>
          <div id="dynamictable1"></div>
-              
-     
    </div>
   </div>
 </div>
@@ -135,32 +133,30 @@
                       var len=data.length;
                       for(var i=0;i<len;i++)
                     {
-                        jQuery('#id_'+(i+1)+'_Book_name').html(data[i]["Book_name"]);
-                        jQuery('#id_'+(i+1)+'_total').html(data[i]["Book_deparment"]);
-                        jQuery('#id_'+(i+1)+'_book_author').html(data[i]["book_author"]);
-                        jQuery('#id_'+(i+1)+'_published_year').html(data[i]["from_date"]);
-                        jQuery('#id_'+(i+1)+'_edition').html(data[i]["to_date"]);
-                        //jQuery('#img_'+(i+1)).attr("src",data[i]["Book_image"]);
+                        
                         
                         var count=data.length;
                          $("#dynamictable1").show();
                          $("#dynamictable1").innerHTML='';
                          $("#sample_2").remove()
-                         $("#dynamictable1").append($("<table width=100% id='sample_2' class='table table-bordered sortable tablehover'>"+ 
-                                                      "<thead><tr><th align='left' valign='middle' style='font-size:18px;color: white;'>Book Id</th><th align='left' valign='middle' style='font-size:18px;color: white;'>Book Name</th>"+
-	                                      "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Author</th>" + 
+                         $("#dynamictable1").append($("<table width=100% id='sample_2' class='table ' >"+ 
+                                                      "<thead><tr><th align='left' valign='middle' style='font-size:18px;color: white;'>Book</th><th align='left' valign='middle' style='font-size:18px;color: white;'>Book ID</th>"+
+	                                      "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Name</th>" + 
+                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Author</th>" +
                                           "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Deparment</th>" +
-                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'>Issed date</th>" +
+                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'>Issue Date</th>" + 
                                           "<th align='left' valign='middle' style='font-size:18px;color: white;'>Return Date</th>" + 
 	                                      "</tr></thead><tbody>"));
                         for(var i=0;i<len;i++)
                          {
-                      var table="<tr><td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["Book_id"]+"</td>"+
+                      var table="<tr><td align='left' valign='middle' style='font-size:18px;color: white;'><img style=\" height: 150px\" src=\""+data[i]["book_image"]+"\" /></td>" +
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["Book_id"]+"</td>"+
                                 "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["Book_name"]+"</td>"+
                                 "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["book_author"]+"</td>"+
                                 "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["Book_deparment"]+"</td>"+
                                 "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["from_date"]+"</td>"+
-                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["to_date"]+"</td></tr>";
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["to_date"]+"</td>"+
+                                "</tr>";
                                	$("#sample_2").append(table); 
                          }
                      $("#dynamictable1").append("</tbody></table>");
