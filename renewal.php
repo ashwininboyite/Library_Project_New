@@ -87,14 +87,116 @@
     
   <div class="body" style="background-image: url(images/bg.jpg);">  
 <div class="responsive-form block-center" style="margin-top: 170px">
-  <div class="login-group homepage_admin light-wrap">
-      <div >
-        <ul>
-            <h2 style="color: white;">Renewal</h2>
-      </ul>
-          <form id="legacy-signup" class="legacy-form" method="POST"  action="student_register.php">
-              
-          </form>
+  <div>
+       
           
+              <div class="login-group homepage_admin light-wrap" id="no_book">
+        <ul>
+            <h2 style="color: white;">No Books are Presrent to renewal !!!!...</h2>
+        </ul>
       </div>
+         <div id="dynamictable1"></div>
+         
   </div>
+ </div>
+</div>
+    <script>
+            window.onload = function() {
+                $('#no_book').hide();
+                
+                my_book_details();
+                
+                };
+        
+              function my_book_details()
+              {
+                  debugger
+                 $.ajax({
+                        url:'http://localhost:8080/library_proj/renewal_fetch.php',
+                        type:'POST',
+                        dataType:'json',
+                        success:function(data)
+                        {
+                            debugger
+                            load(data); 
+                        },
+                            error:function(jqXHR, textStatus, errorThrown){
+                                 $('#more-info').html('');
+                        alert('Error Loading'); 
+                            }
+                    });
+              }
+              function load(data){
+                  debugger
+                  if(data[0]==0)
+                  {
+                      $('#no_book').show();
+                  }
+                  else{
+                      $('#present_id').show();
+                      var len=data.length;
+                      for(var i=0;i<len;i++)
+                    {
+                        
+                        
+                        var count=data.length;
+                         $("#dynamictable1").show();
+                         $("#dynamictable1").innerHTML='';
+                         $("#sample_2").remove()
+                         $("#dynamictable1").append($("<table width=100% id='sample_2' class='table ' >"+ 
+                                                      "<thead><tr><th align='left' valign='middle' style='font-size:18px;color: white;'>Book</th><th align='left' valign='middle' style='font-size:18px;color: white;'>Book ID</th>"+
+	                                      "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Name</th>" + 
+                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Author</th>" +
+                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Deparment</th>" +
+                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'>Issue Date</th>" + 
+                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'>Return Date</th>" + 
+                                          "<th align='left' valign='middle' style='font-size:18px;color: white;'></th>" + 
+	                                      "</tr></thead><tbody>"));
+                        for(var i=0;i<len;i++)
+                         {
+                      var table="<tr><td align='left' valign='middle' style='font-size:18px;color: white;'><img style=\" height: 150px\" src=\""+data[i]["book_image"]+"\" /></td>" +
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;' class=\"abc\" id=\"id_"+i+"_val\" >"+data[i]["Book_id"]+"</td>"+
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["Book_name"]+"</td>"+
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["book_author"]+"</td>"+
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["Book_deparment"]+"</td>"+
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["from_date"]+"</td>"+
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'>"+data[i]["to_date"]+"</td>"+
+                                "<td align='left' valign='middle' style='font-size:18px;color: white;'><button type='submit'  name='submit' class='form-btn' onclick='submit1(this)'>Renewal"+
+                                "</button></td></tr>";
+                               	$("#sample_2").append(table); 
+                         }
+                     $("#dynamictable1").append("</tbody></table>");
+                    }
+                  }
+              }
+            
+           /* function submit1(para)
+        {
+            debugger
+            var bookid = para.parentNode.parentElement.getElementsByClassName("abc")[0].textContent;
+            function my_book_details()
+              {
+                  debugger
+                 $.ajax({
+                        url:'http://localhost:8080/library_proj/renewal__payment.php',
+                        type:'POST',
+                        dataType:'json',
+                        data: {id:parameter}, 
+                        success:function(data)
+                        {
+                            debugger
+                            load(data); 
+                        },
+                            error:function(jqXHR, textStatus, errorThrown){
+                                 $('#more-info').html('');
+                        alert('Error Loading'); 
+                            }
+                    });
+              }
+            
+            
+        }*/
+              
+          </script>
+          
+</body>
