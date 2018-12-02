@@ -131,6 +131,9 @@
                   if(data[0]==0)
                   {
                       $('#no_book').show();
+                      $("#dynamictable1").empty();
+                      $("#dynamictable1").innerHTML='';
+                      $("#sample_2").remove();
                   }
                   else{
                       $('#present_id').show();
@@ -141,8 +144,9 @@
                         
                         var count=data.length;
                          $("#dynamictable1").show();
+                        $("#dynamictable1").empty();
                          $("#dynamictable1").innerHTML='';
-                         $("#sample_2").remove()
+                         $("#sample_2").remove();
                          $("#dynamictable1").append($("<table width=100% id='sample_2' class='table ' >"+ 
                                                       "<thead><tr><th align='left' valign='middle' style='font-size:18px;color: white;'>Book</th><th align='left' valign='middle' style='font-size:18px;color: white;'>Book ID</th>"+
 	                                      "<th align='left' valign='middle' style='font-size:18px;color: white;'>Book Name</th>" + 
@@ -170,32 +174,42 @@
                   }
               }
             
-           /* function submit1(para)
+            function submit1(para)
         {
             debugger
             var bookid = para.parentNode.parentElement.getElementsByClassName("abc")[0].textContent;
-            function my_book_details()
-              {
+            
                   debugger
                  $.ajax({
                         url:'http://localhost:8080/library_proj/renewal__payment.php',
                         type:'POST',
                         dataType:'json',
-                        data: {id:parameter}, 
+                        data: {id:bookid}, 
                         success:function(data)
                         {
                             debugger
-                            load(data); 
+                            load1(data); 
                         },
                             error:function(jqXHR, textStatus, errorThrown){
                                  $('#more-info').html('');
                         alert('Error Loading'); 
                             }
                     });
-              }
-            
-            
-        }*/
+        }
+        
+        function load1(data)
+        {
+            debugger
+            if(data[0]=='Passed')
+            {
+                alert('Book Has been Renewed');
+            }
+            else if(data[0]=='Failed')
+                {
+                    alert('Unable to renew Check the Balaance in the account!!!!!!!!!!');
+                }
+            my_book_details();
+        }
               
           </script>
           
